@@ -1,33 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 function SmestajKladovo () {
     return (
-	<div className="container">
+	<div id="content" style={{textAlign: 'center'}}>
 	    <Search />
-	    <Browse />
-	    <LogIn />
+	    <Browse onClick={() => null}/>
+	    <LogIn onClick={() => null}/>
 	</div>
     );
 }
 
 class Search extends React.Component {
     render() {
-	return (<div><a className="search" href="#">Search</a></div>);
+	return (
+	    <div className="container">
+		<div className="row" >
+		<input id="searchInput" type="text" className="form-control" placeholder="Search" />
+		<button className="btn" onClick=
+		{() => ReactDOM.render(
+		     <SearchView searchTerm={document.getElementById('searchInput').value}/>,
+		     document.getElementById('content')
+		)}>Search</button>
+	    </div>
+	    </div>);
     }
 }
 
 class Browse extends React.Component {
     render() {
-	return (<div><a className="browse" href="#">Browse</a></div>);
+	return (<div className="row" ><button className="btn" style={{margin: '2px'}}>Browse</button></div>);
     }
 }
 
 class LogIn extends React.Component {
     render() {
 	return (
-	    <div className="login row">
-		<div className="col-6" style={{marginTop: '15px', marginBottom: '15px', marginLeft: '30%', marginRight: '30%'}}>
+	    <div id="login" style={{marginTop: '15px', marginBottom: '15px', marginLeft: '30%', marginRight: '30%'}}>
 		    <form id="loginform">
 			<div className="form-group">
 			    <div className="row">
@@ -37,16 +47,48 @@ class LogIn extends React.Component {
 				<div className="mr-3"><label>Password</label><input className="form-control" type="password" id="password" /></div>
 			    </div>
 			    <div className="row">
-				<button className="btn btn-primary" type="submit">Log In</button>
+				<button className="btn" style={{margin: '2px'}}>Log In</button>
+				<button className="btn" style={{margin: '2px'}}>Sign Up</button>
 			    </div>
 			</div>
 		    </form>
-		</div>
 	    </div>);
     }
 }
 
-ReactDOM.render(
-    <SmestajKladovo />,
-    document.getElementById('content')
-);
+class SearchView extends React.Component {
+    constructor(props) {
+	super(props);
+
+	this.state = {
+	    items: []
+	};
+    }
+
+    componentDidMount() {
+	fetch(`./api/roomlist.json`)
+	     .then(res => {
+		 const items = res.json();
+		 this.setState({ items });
+	     });
+    }
+    render() {
+	return (
+	    <div><p>Searching for: {this.props.searchTerm}</p>
+		<div className="sidebar">
+		    <Search />
+		    <Browse />
+		</div>
+		<ListItems searchTerm={this.items} />
+	    </div>
+	);
+    }
+}
+
+function ListItems(props) {
+    var x=props
+	return (<ul> {}}</ul>);
+}
+
+
+ReactDOM.render(<SmestajKladovo />, document.getElementById('content'));

@@ -1,0 +1,56 @@
+{
+    "itemList": [
+	{
+	    "title":"Hotel Iris",
+	    "description": "Hotel Iris se nalazi na 8 km od ski centra Tornik na Zlatiboru. Gosti mogu besplatno koristiti spa centar s bazenom i saunom.",
+	    "highlightedProperty": {
+		"property": "star",
+		"value": "4"
+	    },
+	    "thumbnail": {
+		"type": "static",
+		"url": "./api/73112054.jpg"
+	    },
+	    "properties": [
+		{
+		    "property": "restoran",
+		    "value": ""
+		},
+		{
+		    "property": "parking",
+		    "value": ""
+		},
+		{
+		    "property": "wifi",
+		    "value": ""
+		}
+	    ]
+	},
+	{
+	    "title":"Hotel Zlatibor Mona",
+	    "description": "Smešten na pogodnoj lokaciji u centru turističkog odmarališta Zlatibor, nedaleko od svih najvažnijih atrakcija, elegantno uređeni hotel Mona nudi svetle i dobro opremljene smeštajne jedinice.",
+	    "highlightedProperty": {
+		"property": "star",
+		"value": "4"
+	    },
+	    "thumbnail": {
+		"type": "static",
+		"url": "./api/105330336.jpg"
+	    },
+	    "properties": [
+		{
+		    "property": "restoran",
+		    "value": ""
+		},
+		{
+		    "property": "parking",
+		    "value": ""
+		},
+		{
+		    "property": "bazen",
+		    "value": ""
+		}
+	    ]
+	}
+    ]
+}
