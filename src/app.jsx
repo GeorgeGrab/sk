@@ -15,16 +15,31 @@ function SmestajKladovo () {
 class Search extends React.Component {
     render() {
 	return (
-	    <div className="container">
-		<div className="row" >
-		<input id="searchInput" type="text" className="form-control" placeholder="Search" />
-		<button className="btn" onClick=
-		{() => ReactDOM.render(
-		     <SearchView searchTerm={document.getElementById('searchInput').value}/>,
-		     document.getElementById('content')
-		)}>Search</button>
+	    <div className="searchpage row">
+		<div className="col-6" style={{marginTop: '15px', marginBottom: '15px', marginLeft: '30%', marginRight: '30%'}}>
+		    <form id="searchpageform">
+			<div className="form-group">
+			    <div style={{textAlign:"center"}} className="row">
+				<h1>Pronađi svoj idealan smeštaj!</h1>
+			    </div>
+			    <div style={{textAlign:"center"}} className="row">
+				<div className="mr-3">
+				    <input id="searchInput" style={{width:"70%"}} type="text"  placeholder="Search for..."/>
+				    <span>
+					<button style={{width:"20%"}} className="btn btn-primary" type="button" onClick=
+					    {() => ReactDOM.render(
+						 <SearchView searchTerm={document.getElementById('searchInput').value}/>,
+						 document.getElementById('content')
+					    )}>Go!</button>
+				    </span>
+				</div>
+			    </div>
+			</div>
+		    </form>
+		</div>
 	    </div>
-	    </div>);
+
+	);
     }
 }
 
@@ -87,7 +102,7 @@ class SearchView extends React.Component {
 
 function ListItems(props) {
     var x=props
-	return (<ul> {}}</ul>);
+	return (<ul> {}</ul>);
 }
 
 
